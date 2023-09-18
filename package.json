@@ -1,0 +1,28 @@
+{
+  "name": "unit-test-workshop",
+  "version": "1.0.0",
+  "description": "Scaffolding for a workshop about best unit test practices",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h4nz2/unit-test-workshop.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "Jan Hric",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/h4nz2/unit-test-workshop/issues"
+  },
+  "homepage": "https://github.com/h4nz2/unit-test-workshop#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
