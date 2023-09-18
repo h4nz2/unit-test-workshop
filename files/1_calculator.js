@@ -1,4 +1,3 @@
-// create a more complicated case where setup is needed(creating objects, mocks etc.)
 export default class Calculator {
   #numberA
   #numberB
