@@ -3,13 +3,13 @@ Scaffolding for a workshop about best unit test practices
 
 # Setup intructions
 
-Install [nodejs](https://github.com/nvm-sh/nvm#installing-and-updating) and [jest](https://jestjs.io/docs/getting-started)
+Install [nodejs](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 ```
 npm install
 
 # Verify that everything works by running a sample test
-npm test
+npm test -- tests/0_sum.test.js
 ```
 
 
