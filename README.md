@@ -13,7 +13,7 @@ npm test -- tests/0_sum.test.js
 ```
 
 
-Get familiar with basics of Jest syntax, most importanntly:
+Get familiar with basics of Jest syntax, most importantly:
 - [matchers](https://jestjs.io/docs/using-matchers)
 - [tests setup](https://jestjs.io/docs/setup-teardown)
 - [mocking](https://jestjs.io/docs/mock-functions)
