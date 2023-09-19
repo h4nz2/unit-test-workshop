@@ -5,6 +5,7 @@ import Calculator from '../files/1_calculator'
 // just adding the name of the function is not enough
 test('divide', () => {
   const calculator = new Calculator(1, 2)
+  // is this a self-fulfilling prophecy?
   expect(calculator.divide()).toBe(1 / 2)
 });
 

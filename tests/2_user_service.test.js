@@ -1,4 +1,4 @@
-import updateUser, { RecordNotFound, UserCRUD } from "../files/2_user_service"
+import updateUser, { RecordNotFound, UserCRUD, deleteUser } from "../files/2_user_service"
 
 describe('when user does not exist', () => {
   it('raises an error', () => {
@@ -29,6 +29,12 @@ describe('when the user exists', () => {
       job: 'revenge seeker',
       email: 'baba@yaga.com'
     })
+  })
+
+  // what do you think about this one? all good?
+  it('deletes the user', () => {
+    deleteUser(userId)
+    expect(UserCRUD.findUserById(userId)).toBe(null)
   })
 })
 

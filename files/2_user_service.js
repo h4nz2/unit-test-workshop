@@ -12,6 +12,10 @@ function updateUser(userId, userData) {
 }
 export default updateUser
 
+export function deleteUser(userId) {
+  UserCRUD.deleteUser(userId)
+}
+
 export class UserCRUD {
   static #user = { id: 5, name: 'Johnny Cash', job: 'singer', email: 'johnny@cash.com' }
 
