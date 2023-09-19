@@ -1,4 +1,4 @@
-import updateUser, { RecordNotFound, UserCRUD, deleteUser } from "../files/2_user_service"
+import { updateUser, RecordNotFound, UserCRUD, UserMailer, deleteUser } from "../files/2_user_service"
 
 describe('updateUser()', () => {
   describe('when user does not exist', () => {
@@ -21,6 +21,7 @@ describe('updateUser()', () => {
     }
     let findUserByIdMock
     let updateUserMock
+    let sendUserEmailMock
     const updateParams = { job: 'revenge seeker' }
 
     // we have configured jest cleanup mocks after each test
@@ -30,13 +31,21 @@ describe('updateUser()', () => {
         .spyOn(UserCRUD, 'findUserById')
         .mockImplementation(() => mockedUser)
 
-      updateUserMock = jest
-        .spyOn(UserCRUD, 'updateUser')
+      updateUserMock = jest.spyOn(UserCRUD, 'updateUser')
+
+      sendUserEmailMock = jest.spyOn(UserMailer, 'sendEmailChanged')
     })
 
     it('updates the user', () => {
       updateUser(mockedUser.id, updateParams)
       expect(updateUserMock).toHaveBeenCalledWith(updateParams);
+    })
+
+    describe('when the email changes', () => {
+      it('sends an email', () => {
+        updateUser(mockedUser.id, { email: 'new@email.com' })
+        expect(sendUserEmailMock).toHaveBeenCalledWith(mockedUser.name, mockedUser.email, 'new@email.com')
+      })
     })
   })
 })

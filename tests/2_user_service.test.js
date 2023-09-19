@@ -1,4 +1,4 @@
-import updateUser, { RecordNotFound, UserCRUD, deleteUser } from "../files/2_user_service"
+import { updateUser, RecordNotFound, UserCRUD, UserMailer, deleteUser } from "../files/2_user_service"
 
 describe('when user does not exist', () => {
   it('raises an error', () => {
@@ -29,6 +29,12 @@ describe('when the user exists', () => {
       job: 'revenge seeker',
       email: 'baba@yaga.com'
     })
+  })
+
+  it('sends an email to the user if the email changes', () => {
+    const emailCountBefore = UserMailer.emailsSent.length
+    updateUser(userId, { email: 'mr@bombastic.net' })
+    expect(UserMailer.emailsSent.length).toBeGreaterThan(emailCountBefore)
   })
 
   // what do you think about this one? all good?
